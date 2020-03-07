@@ -1,0 +1,129 @@
+
+
+body {
+    font-size: 10vw;
+    font-family: calibri, sans-serif;
+    font-size: 18px;
+}
+
+h1 {
+    width: 600px;
+    text-align: center;
+    padding: 10px;
+    background: black;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    width: 600px;
+}
+
+th, td {
+    text-align: center;
+    padding: 8px;
+    
+}
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+div.buttonbox {
+    width: 40%;
+    /*background-color: #717171;*/
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 8px 8px 8px 8px
+}
+
+div.textupdates {
+    width: 600px;
+    background-color: #eaeaea;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    padding: 8px 8px 8px 8px;
+    font-weight: bold;
+    /*font-size: larger;*/
+    margin-top: 20px;
+    margin-bottom: 6px;
+}
+
+.cool {
+    background-color: #ff0000
+}
+
+.hot {
+    background-color: #2336ac
+}
+
+.hidden {
+    visibility: hidden
+}
+
+.blackcard {
+    font-weight: bold;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.redcard {
+    color: red;
+    font-weight: bold;
+}
+
+li {
+    list-style-type: none;
+}
+
+button {
+    border: none;
+    border-radius: 25px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    background-color: #5499C7; 
+}
+
+    button#newgame {
+        background-color: #5499C7;
+        width: 140px;
+    }
+
+
+    button#hit {
+        background-color: green;
+        width: 140px;
+    }
+
+    button#stay {
+        background-color: red;
+        width: 140px;
+    }
+
+#playcount {
+    padding: 20px;
+    width: 200px;
+    height: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+
+
+
+
