@@ -1,15 +1,14 @@
 
     <html>
     <head>
-<link rel="stylesheet" type="text/css" href="BlackJack.css">
+        <link rel="stylesheet" type="text/css" href="BlackJack.css">
         <title>Black Jack</title>
-
     </head>
   
     <body>
         <h1>Black Jack </h1>
         <div id="playcount">
-            <p>0 Game(s) Played</p>
+            <p>0 Game(s) Played &#128202</p>
         </div>
         <div class="messagearea" id="messagearea">
             Press 'New Game' to begin!
@@ -57,11 +56,7 @@
 
 
     // Stores necessary fields to be used later
-    varbj.pcards = document.getElementById('pcards');
-    varbj.dcards = document.getElementById('dcards');
-    varbj.hitButton = document.getElementById('hit');
-    varbj.stayButton = document.getElementById('stay');
-    varbj.playButton = document.getElementById('play');
+    
     varbj.messagearea = document.getElementById('messagearea');
     varbj.buttonBox = document.getElementById('buttonBox');
     varbj.phandtext = document.getElementById('phand');
@@ -69,7 +64,11 @@
     varbj.playcount = document.getElementById('playcount');
     varbj.newgame = document.getElementById('newgame');
     varbj.option = document.getElementById('option');
-
+    varbj.pcards = document.getElementById('pcards');
+    varbj.dcards = document.getElementById('dcards');
+    varbj.hitButton = document.getElementById('hit');
+    varbj.stayButton = document.getElementById('stay');
+    varbj.playButton = document.getElementById('play');
 
     // initializing variables with arrays for hands/cards etc.
     varbj.playerHand = [];
@@ -80,11 +79,11 @@
     varbj.gameStatus = 0; // flag 0 means that game has not been started yet
     varbj.games = 0; // the number of games played
 
-    // paramenetrs for a card - suit, value and name
+    // paramenetrs for a card: suits, values and names
     function card(suit, value, name) {
         this.suit = suit; // string of clubs/diamonds/hearts/spades
-        this.value = value; // number 1 - 10
-        this.name = name; // string of the full card name
+        this.value = value; // Number: 1 - 10
+        this.name = name; // string value of full card name
     };
 
 
@@ -132,15 +131,14 @@
             return;
         }
 
-        // draw the hands if neither won on the initial deal
+        // draw the hands if no one won on the initial deal
         displayCards();
-        //advise();
         varbj.buttonBox.classList.remove("hidden"); // show hit/stay buttons
         varbj.messagearea.innerHTML = "Initial hands are dealt!";
 
     };
 
-    //function to create the new deck
+    //function to build a new deck
     var buildDeck = function () {
         var deck = [];
 
@@ -273,7 +271,7 @@
             win();
             return;
         }
-        varbj.messagearea.innerHTML = "Please press Hit or stay to proceed!</p>";
+        varbj.messagearea.innerHTML = "Press Hit or Stay to proceed!</p>";
         return;
     });
 
@@ -332,41 +330,41 @@
     var win = function () {
         //varbj.wins += 1;
         varbj.games += 1;
-        var explanation = "";
+        var messagetext = "";
         varbj.gameStatus = 2; // flag that the game is over
         var playerTotal = handTotalValue(varbj.playerHand);
         var dealerTotal = handTotalValue(varbj.dealerHand);
         if (playerTotal === 21) {
-            explanation = "Your hand's value is 21!";
+            messagetext = "Your hand's value is 21!";
         }
         else if (dealerTotal > 21) {
-            explanation = "Dealer busted with " + dealerTotal + "!";
+            messagetext = "Dealer busted with " + dealerTotal + "!";
         }
         else {
-            explanation = "You had " + playerTotal + " and the dealer had " + dealerTotal + ".";
+            messagetext = "You had " + playerTotal + " and the dealer had " + dealerTotal + ".";
         }
-        varbj.messagearea.innerHTML = "Yay! You won &#128512<br>" + explanation + "<br>Press 'New Game' to play again.<br>";
+        varbj.messagearea.innerHTML = "Yay! You won &#128512<br>" + messagetext + "<br>Press 'New Game' to play again.<br>";
         counter();
     }
 
     var bustgame = function () {
         varbj.games += 1;
         //varbj.losses += 1;
-        var explanation = "";
+        var messagetext = "";
         varbj.gameStatus = 2; // flag that the game is over
         var playerTotal = handTotalValue(varbj.playerHand);
         var dealerTotal = handTotalValue(varbj.dealerHand);
         if (playerTotal > 21) {
-            explanation = "You busted with " + playerTotal + ".";
+            messagetext = "You busted with " + playerTotal + ".";
         }
-        varbj.messagearea.innerHTML = "Oops! You lost &#128546<br>" + explanation + "<br>Press 'New Game' to play again.<br>";
+        varbj.messagearea.innerHTML = "Oops! You lost &#128546<br>" + messagetext + "<br>Press 'New Game' to play again.<br>";
         counter();
     }
 
     var tiegame = function () {
         varbj.games += 1;
         //varbj.draws += 1;
-        var explanation = "";
+        var messagetext = "";
         varbj.gameStatus = 2; // flag that the game is over
         var playerTotal = handTotalValue(varbj.playerHand);
         varbj.messagearea.innerHTML = "It's a tie at " + playerTotal + " points each &#128528<br>Press 'New Game' to play again.<br>";
@@ -375,7 +373,7 @@
 
     // updates counter of games played
     var counter = function () {
-        varbj.playcount.innerHTML = "<p>" + varbj.games + " Game(s) Played</p>";
+        varbj.playcount.innerHTML = "<p>" + varbj.games + " Game(s) Played &#128202</p>";
         varbj.newgame.classList.remove("hidden");
         varbj.buttonBox.classList.add("hidden");
     }
