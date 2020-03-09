@@ -20,8 +20,26 @@ varbj.playButton = document.getElementById('play');
 varbj.playerHand = [];
 varbj.dealerHand = [];
 varbj.deck = [];
-varbj.suits = ['clubs <span class="bold">&#9827</span>', 'diamonds <span class="redcard">&#9830</span>', 'hearts <span class="redcard">&#9829</span>', 'spades <span class="bold">&#9824</span>'];
-varbj.values = ["Ace", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine", "Ten", "Jack", "Queen", "King"];
+
+varbj.suits = ['clubs <span class="bold">&#9827</span>',
+    'diamonds <span class="redcard">&#9830</span>',
+    'hearts <span class="redcard">&#9829</span>',
+    'spades <span class="bold">&#9824</span>'];
+
+varbj.values = ["Ace",
+    "Two",
+    "Three",
+    "Four",
+    "Five",
+    "Six",
+    "Seven",
+    "Eight",
+    "Nine",
+    "Ten",
+    "Jack",
+    "Queen",
+    "King"];
+
 varbj.gameStatus = 0; // flag 0 means that game has not been started yet
 varbj.games = 0; // the number of games played
 
@@ -115,15 +133,15 @@ var buildDeck = function () {
 
 // Update the screen with the contents of the player and dealer hands
 var displayCards = function () {
-    var htmlswap = "";
+    var fillhtml = "";
     var ptotal = handTotalValue(varbj.playerHand); //total of player's hand
     var dtotal = handTotalValue(varbj.dealerHand); //total of dealer's hand
-    htmlswap += "<ul>";
+    fillhtml += "<ul>";
     for (var i = 0; i < varbj.playerHand.length; i++) {
-        htmlswap += "<li>" + varbj.playerHand[i].name + "</li>";
+        fillhtml += "<li>" + varbj.playerHand[i].name + "</li>";
     }
-    htmlswap += "</ul>"
-    varbj.pcards.innerHTML = htmlswap;
+    fillhtml += "</ul>"
+    varbj.pcards.innerHTML = fillhtml;
     varbj.phandtext.innerHTML = "You (" + ptotal + ")"; // update player hand total
     if (varbj.dealerHand.length == 0) {
         return;
@@ -131,9 +149,9 @@ var displayCards = function () {
 
     // clear the html string, re-do for the dealer, depending on if player presses stay button or not
 
-    htmlswap = "";
+    fillhtml = "";
     if (varbj.gameStatus === 0) {
-        htmlswap += "<ul><li>[Hidden Card]</li>";
+        fillhtml += "<ul><li>[Hidden Card]</li>";
         varbj.dhandtext.innerHTML = "Dealer (" + varbj.dealerHand[1].value + " + Hidden Card)"; // hiding value while a card is face down
     }
     else {
@@ -146,16 +164,16 @@ var displayCards = function () {
         if (varbj.gameStatus === 0) {
             i += 1;
         }
-        htmlswap += "<li>" + varbj.dealerHand[i].name + "</li>";
+        fillhtml += "<li>" + varbj.dealerHand[i].name + "</li>";
     }
-    htmlswap += "</ul>"
-    varbj.dcards.innerHTML = htmlswap;
+    fillhtml += "</ul>"
+    varbj.dcards.innerHTML = fillhtml;
 
 };
 
 // this method returns the total value of the hand 
 var handTotalValue = function (hand) {
-    //console.log("Checking hand value");
+    //console.log("value of hand");
     var total = 0;
     var aceFlag = 0; // track the number of aces in the hand
     for (var i = 0; i < hand.length; i++) {
@@ -274,7 +292,6 @@ varbj.stayButton.addEventListener("click", function stayLoop() {
 });
 
 var win = function () {
-    //varbj.wins += 1;
     varbj.games += 1;
     var messagetext = "";
     varbj.gameStatus = 2; // flag that the game is over
@@ -295,7 +312,6 @@ var win = function () {
 
 var bustgame = function () {
     varbj.games += 1;
-    //varbj.losses += 1;
     var messagetext = "";
     varbj.gameStatus = 2; // flag that the game is over
     var playerTotal = handTotalValue(varbj.playerHand);
@@ -309,7 +325,6 @@ var bustgame = function () {
 
 var tiegame = function () {
     varbj.games += 1;
-    //varbj.draws += 1;
     var messagetext = "";
     varbj.gameStatus = 2; // flag that the game is over
     var playerTotal = handTotalValue(varbj.playerHand);
