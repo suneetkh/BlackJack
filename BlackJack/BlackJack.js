@@ -251,7 +251,7 @@ varbj.stayButton.addEventListener("click", function stayLoop() {
         varbj.buttonBox.classList.add("hidden"); // hides hit and stay buttons
         var handVal = handTotalValue(varbj.dealerHand);
         varbj.gameStatus = 1; // enter the 'stay' loop which means now the dealer will reveal his hidden card
-        varbj.messagearea.innerHTML = "The dealer reveals his/her hidden card";
+        varbj.messagearea.innerHTML = "Dealer reveals his/her hidden card";
         displayCards();
         setTimeout(stayLoop, 750); // return to the stay loop (12.5 min)
     }
