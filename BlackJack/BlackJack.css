@@ -34,7 +34,14 @@ table {
     width: 100%;
 }
 
-th, td {
+th {
+    text-align: center;
+    padding: 8px;
+    font-size:larger
+    
+}
+
+td {
     text-align: center;
     padding: 8px;
 }

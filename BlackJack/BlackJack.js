@@ -262,7 +262,7 @@ varbj.stayButton.addEventListener("click", function stayLoop() {
     }
     else if (varbj.gameStatus === 1) {
 
-        // If dealer has less than 17, hit
+        // If dealer has less than 17 and defeats of player is less than 5, then dealer will hit
         var handVal = handTotalValue(varbj.dealerHand);
         if (handVal > 16 && handVal <= 21) // dealer stays
         {
@@ -325,6 +325,9 @@ var bustgame = function () {
     var dealerTotal = handTotalValue(varbj.dealerHand);
     if (playerTotal > 21) {
         messagetext = "You busted with " + playerTotal + ".";
+    }
+    else {
+        messagetext = "You had " + playerTotal + " and the dealer had " + dealerTotal + ".";
     }
     varbj.messagearea.innerHTML = "Oops! You lost &#128546<br>" + messagetext + "<br>Press 'New Game' to play again.<br>";
     counter();
