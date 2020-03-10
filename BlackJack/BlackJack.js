@@ -15,6 +15,7 @@ varbj.dcards = document.getElementById('dcards');
 varbj.hitButton = document.getElementById('hit');
 varbj.stayButton = document.getElementById('stay');
 varbj.playButton = document.getElementById('play');
+varbj.stats = document.getElementById('stats');
 
 // initializing variables with arrays for hands/cards etc.
 varbj.playerHand = [];
@@ -42,6 +43,9 @@ varbj.values = ["Ace",
 
 varbj.gameStatus = 0; // flag 0 means that game has not been started yet
 varbj.games = 0; // the number of games played
+varbj.wins = 0;  // number of wins
+varbj.defeats = 0; // number of defeats
+varbj.ties = 0;  // number of ties
 
 // paramenetrs for a card: suits, values and names
 function card(suit, value, name) {
@@ -72,6 +76,7 @@ var newGame = function () {
     if (handTotalValue(varbj.playerHand) === 21) { //check strict 21 meaning checking datatype and compare 2 values
         varbj.games += 1;
         varbj.gameStatus = 1; // to cause the dealer's hand to be drawn face up
+        varbj.wins += 1; //increase win counter
         displayCards();
         varbj.messagearea.innerHTML = "Yay! You won &#128512 You got 21 on your initial hand!";
         counter();           //keeps track of how many games played
@@ -86,7 +91,7 @@ var newGame = function () {
     // check if dealers wins    
     if (handTotalValue(varbj.dealerHand) === 21) {
         varbj.games += 1;
-        //varbj.losses += 1;
+        varbj.defeats += 1;
         varbj.gameStatus = 1; // to cause the dealer's hand to be drawn face up
         displayCards();
         varbj.messagearea.innerHTML = "Oops! You lost &#128546 The dealer had 21 on their initial hand.";
@@ -259,7 +264,7 @@ varbj.stayButton.addEventListener("click", function stayLoop() {
 
         // If dealer has less than 17, hit
         var handVal = handTotalValue(varbj.dealerHand);
-        if (handVal > 16 && handVal <= 21) // dealer stays and game resolves
+        if (handVal > 16 && handVal <= 21) // dealer stays
         {
             displayCards();
             var playerVal = handTotalValue(varbj.playerHand);
@@ -293,6 +298,7 @@ varbj.stayButton.addEventListener("click", function stayLoop() {
 
 var win = function () {
     varbj.games += 1;
+    varbj.wins += 1;
     var messagetext = "";
     varbj.gameStatus = 2; // flag that the game is over
     var playerTotal = handTotalValue(varbj.playerHand);
@@ -312,6 +318,7 @@ var win = function () {
 
 var bustgame = function () {
     varbj.games += 1;
+    varbj.defeats += 1;
     var messagetext = "";
     varbj.gameStatus = 2; // flag that the game is over
     var playerTotal = handTotalValue(varbj.playerHand);
@@ -325,6 +332,7 @@ var bustgame = function () {
 
 var tiegame = function () {
     varbj.games += 1;
+    varbj.ties += 1;
     var messagetext = "";
     varbj.gameStatus = 2; // flag that the game is over
     var playerTotal = handTotalValue(varbj.playerHand);
@@ -334,7 +342,9 @@ var tiegame = function () {
 
 // updates counter of games played
 var counter = function () {
-    varbj.playcount.innerHTML = "<p>" + varbj.games + " Game(s) Played &#128202</p>";
+    varbj.playcount.innerHTML = "<p>" + varbj.games + " Games Played &#128202</p>";
+    //varbj.stats.innerHTML = "<p>" + varbj.wins + " Wins(s) " + varbj.defeats + " Defeat(s) " + varbj.ties + " Draw(s)</p>";
+    varbj.stats.innerHTML = "<p>Wins: " + varbj.wins + " Defeats: " + varbj.defeats + " Ties: " + varbj.ties + "</p>";
     varbj.newgame.classList.remove("hidden");
     varbj.buttonBox.classList.add("hidden");
 }

@@ -5,23 +5,22 @@ body {
     font-size: 18px;
     display: flex;
     margin: auto;
-    justify-content: center;
+    justify-content: center;    
 }
 
-body > div {
-  max-width: 600px;
-  width: 100%;
-  flex-direction: column;
-  align-content: center;
-  justify-content: space-between;
-}
-
+    body > div {
+        max-width: 600px;
+        width: 100%;
+        flex-direction: column;
+        align-content: center;
+        justify-content: space-between;
+    }
 
 h1 {
+    background-image: url("headerimg.jpg");
     width: 100%;
     text-align: center;
     padding: 10px;
-    background: black;
     color: white;
     margin-left: auto;
     margin-right: auto;
@@ -32,15 +31,14 @@ table {
     border-collapse: collapse;
     width: auto;
     margin-left: auto;
-    margin-right: auto;
     width: 100%;
 }
 
 th, td {
     text-align: center;
     padding: 8px;
-    
 }
+
 tr:nth-child(even) {
     background-color: #f2f2f2;
 }
@@ -62,6 +60,7 @@ div.messagearea {
     padding: 8px 8px 8px 8px;
     margin-top: 20px;
     margin-bottom: 6px;
+    font-weight: bold;
 }
 
 .hidden {
@@ -96,27 +95,36 @@ button {
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
-    background-color: #5499C7; 
+    background-color: #5499C7;
+    background-image: url("headerimg.jpg");
+    font-weight: bold;
 }
 
     button#newgame {
-        background-color: #5499C7;
         width: 140px;
     }
 
 
     button#hit {
-        background-color: green;
         width: 140px;
+        background-image: url("hitimg.jpg");
     }
 
     button#stay {
-        background-color: red;
         width: 140px;
+        background-image: url("stayimg.jpg");
     }
 
 #playcount {
     width: 200px;
+    height: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#stats {
+    width: auto;
     height: 30px;
     margin-left: auto;
     margin-right: auto;
