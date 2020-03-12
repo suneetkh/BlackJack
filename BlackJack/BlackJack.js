@@ -9,7 +9,6 @@ varbj.phandtext = document.getElementById('phand');
 varbj.dhandtext = document.getElementById('dhand');
 varbj.playcount = document.getElementById('playcount');
 varbj.newgame = document.getElementById('newgame');
-varbj.option = document.getElementById('option');
 varbj.pcards = document.getElementById('pcards');
 varbj.dcards = document.getElementById('dcards');
 varbj.hitButton = document.getElementById('hit');
